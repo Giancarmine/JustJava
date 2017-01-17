@@ -75,12 +75,12 @@ public class MainActivity extends AppCompatActivity {
      * This method concat the Order Summary.
      */
     private String createOrderSummary(int price){
-        StringBuilder priceMessage = new StringBuilder("Name: " + name);
-        priceMessage.append("\nAdd Whipped cream: " + cream);
-        priceMessage.append("\nAdd Chocolate: " + chocolate);
-        priceMessage.append("\nQuantity: " + quantity);
-        priceMessage.append("\nTotal price: $" + price);
-        priceMessage.append("\nThank you!");
+        StringBuilder priceMessage = new StringBuilder(getString(R.string.name) + getString(R.string.colon) + name);
+        priceMessage.append("\n" + getString(R.string.add_cream) + cream);
+        priceMessage.append("\n" + getString(R.string.add_chocolate) + chocolate);
+        priceMessage.append("\n" + getString(R.string.quantity) + getString(R.string.colon) + quantity);
+        priceMessage.append("\n" + getString(R.string.total_price) + price);
+        priceMessage.append("\n" + getString(R.string.thank_you));
         return priceMessage.toString();
     }
 
