@@ -1,5 +1,7 @@
 package com.example.android.justjava;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.net.URI;
 import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         name = sayMyName();
         int price = calculatePrice();
         String priceMessage = createOrderSummary(price);
-        displayMessage(priceMessage);
+        composeEmail(priceMessage);
     }
 
     /**
@@ -66,14 +69,6 @@ public class MainActivity extends AppCompatActivity {
             quantity--;
             displayQuantity (quantity);
         }
-    }
-
-    /**
-     * This method displays the given text on the screen.
-     */
-    private void displayMessage(String message) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(message);
     }
 
     /**
@@ -114,5 +109,16 @@ public class MainActivity extends AppCompatActivity {
         if (cream)
             price ++;
         return price;
+    }
+
+    //Invia l'intento al app mail
+    public void composeEmail(String message) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Just Java for " + name);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 }
