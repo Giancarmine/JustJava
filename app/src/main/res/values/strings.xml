@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Just Java</string>
+
+    <!-- Main Activity -->
+    <string name="name">Name</string>
+    <string name="toppings">Toppings</string>
+    <string name="whipped_cream">Whipped cream</string>
+    <string name="chocolate">Chocolate</string>
+    <string name="quantity">Quantity</string>
+    <string name="minus_sign" translatable="false">-</string>
+    <string name="quantity_filler" translatable="false">1</string>
+    <string name="plus_sign" translatable="false">+</string>
+    <string name="price">Price</string>
+    <string name="price_filler">$0</string>
+    <string name="order">Order</string>
+
+    <!-- Main Activity Java -->
+    <string name="add_cream">Add Whipped Cream: </string>
+    <string name="add_chocolate">Add Chocolate: </string>
+    <string name="total_price">Total price: $</string>
+    <string name="colon" translatable="false">: </string>
+    <string name="thank_you">Thank you!</string>
+</resources>
